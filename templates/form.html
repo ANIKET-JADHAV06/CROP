@@ -1,0 +1,126 @@
+
+{% extends 'layout.html' %} {% block body %}
+<style>
+    html body {
+       background-image: url("{{ url_for('static', filename='images/s3.jpg') }}");
+        background-size: cover;
+
+
+    }
+    
+.attractive-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f24e;
+  border-radius: 10px;
+}
+
+.attractive-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  width: 10%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+</style>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    
+    <div class="login">
+
+        <form class="attractive-form" action="{{ url_for('predict')}}" method="post">
+            <h2>Find out the most suitable crop to grow in your farm</h2>
+            <div class="form-group">
+                <label for="name">N - Nitrogen</label>
+                <input type="text" name="N" placeholder="N (Nitrogen)" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">P - Potassium</label>
+                <input type="text" name="P" placeholder="P (Potassium)" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">K - Phosphorus</label>
+                <input type="text" name="K" placeholder="K (Phosphorus)" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Temperature</label>
+                <input type="text" name="temperature" placeholder="Temperature" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Humidity</label>
+                <input type="text" name="humidity" placeholder="Humidity" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">ph</label>
+                <input type="text" name="ph" placeholder="ph" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Rainfall </label>
+                <input type="text" name="rainfall" placeholder="Rainfall" required="required" />
+            </div>
+            
+
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" style="color: black; font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;">Predict</button>
+            </div>
+        </form>
+
+
+        <br>
+        <br>
+        
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}
+
